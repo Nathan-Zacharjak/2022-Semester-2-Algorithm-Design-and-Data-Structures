@@ -4,12 +4,12 @@
 
 class Player{
     protected:
-    string name;
+    std::string name;
     
     public:
     Player();
     virtual char makeMove() = 0;
-    string getName();
+    std::string getName();
 };
 
 #endif
