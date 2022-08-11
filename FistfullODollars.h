@@ -12,6 +12,7 @@ class FistfullODollars: public Computer{
     public:
     FistfullODollars();
     char makeMove();
+    void setMoveCount(int moveCount);
 };
 
 #endif

@@ -12,6 +12,7 @@ class Crescendo: public Computer{
     public:
     Crescendo();
     char makeMove();
+    void setMoveCount(int moveCount);
 };
 
 #endif

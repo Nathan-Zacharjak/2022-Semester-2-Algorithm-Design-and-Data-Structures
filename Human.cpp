@@ -4,7 +4,7 @@
 using namespace std;
 
 Human::Human(){
-    
+    name = "Human";
 }
 
 char Human::makeMove(){

@@ -12,6 +12,7 @@ class PaperDoll: public Computer{
     public:
     PaperDoll();
     char makeMove();
+    void setMoveCount(int moveCount);
 };
 
 #endif

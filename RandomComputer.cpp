@@ -5,6 +5,7 @@
 using namespace std;
 
 RandomComputer::RandomComputer(){
+    name = "RandomComputer";
     srand(time(NULL));
 }
 

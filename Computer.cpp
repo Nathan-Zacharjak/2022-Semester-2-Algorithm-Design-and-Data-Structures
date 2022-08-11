@@ -3,5 +3,5 @@
 using namespace std;
 
 Computer::Computer(){
-    
+    name = "Computer";
 }
