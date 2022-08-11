@@ -8,9 +8,9 @@ Referee::Referee(){
 
 }
 
-char Referee::refGame(Human player1, Computer player2){
-    char ply1Move = player1.makeMove();
-    char ply2Move = player2.makeMove();
+char Referee::refGame(Player* player1, Player* player2){
+    char ply1Move = player1->makeMove();
+    char ply2Move = player2->makeMove();
 
     if (ply1Move == ply2Move){
         return 'T';
