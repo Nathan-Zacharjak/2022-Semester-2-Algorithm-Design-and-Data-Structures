@@ -8,8 +8,6 @@ Human::Human(){
 }
 
 char Human::makeMove(){
-    char move;
-
     cout << "Enter move: ";
     cin >> move;
 
