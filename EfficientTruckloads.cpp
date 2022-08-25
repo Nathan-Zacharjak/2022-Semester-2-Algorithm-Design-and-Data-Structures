@@ -5,8 +5,17 @@
 
 using namespace std;
 
+#define TRUCKLOADS_MAX 10000
 
 EfficientTruckloads::EfficientTruckloads(){
+    // Initialise all possible input values of truckloads to -1
+    for (int i = 0; i < TRUCKLOADS_MAX; i++){
+        for (int j = 0; i < TRUCKLOADS_MAX; i++){
+            array<int,2> arr = {i,j};
+            loadTable.at(arr) = -1;
+        }
+        
+    }
     
 }
 
@@ -22,10 +31,9 @@ int EfficientTruckloads::numTrucks(int numCrates, int loadSize){
     }
 
     // Recursive case
-    try {
+    if (loadTable.at(load) != -1) {
         return loadTable.at(load);
-    }
-    catch (const std::out_of_range& oor) {
+    }else{
         cout << "loadTable at " << numCrates << ", " << loadSize << " is: ";
             int truck1 = 0;
             int truck2 = 0;
