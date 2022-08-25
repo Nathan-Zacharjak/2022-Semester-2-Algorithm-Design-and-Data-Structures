@@ -10,7 +10,7 @@ Reverse::Reverse(){
 
 int Reverse::reverseDigit(int value){
     if (value < 0){
-        return -1
+        return -1;
     }
     
     return reverseDigit(value, 0);
