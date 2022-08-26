@@ -15,11 +15,11 @@ int main(void){
 
     Truckloads truckload1;
     
-    cout << truckload1.numTrucks(14,3) << endl;
+    cout << truckload1.numTrucks(1000,2) << endl;
 
     // Initialise all possible input values of truckloads to -1
     EfficientTruckloads etrucks1;
-    cout << etrucks1.numTrucks(14,3) << endl;
+    cout << etrucks1.numTrucks(10000,2) << endl;
 
     return 0;
 }
