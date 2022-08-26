@@ -18,10 +18,12 @@ int Truckloads::numTrucks(int numCrates, int loadSize){
         return -1;
     }
     
+    // Base case
     if (loadSize >= numCrates){
         return 1;
     }
 
+    // Recursive case
     if (numCrates % 2 == 0){
         return numTrucks(numCrates/2, loadSize) + numTrucks(numCrates/2, loadSize);
     }else{
