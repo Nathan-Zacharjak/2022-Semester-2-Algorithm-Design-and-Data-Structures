@@ -5,13 +5,6 @@
 using namespace std;
 
 EfficientTruckloads::EfficientTruckloads(){
-    // Initialise all possible input values of truckloads to -1
-    for (int i = 0; i < TRUCKLOADS_MAX; i++){
-        for (int j = 0; j < TRUCKLOADS_MAX; j++){
-            loadTable.at(i).at(j) = -1;
-        }
-        
-    }
     
 }
 

@@ -5,10 +5,12 @@
 
 #define TRUCKLOADS_MAX 10000
 
+
 class EfficientTruckloads{
 private:
-    static std::array<std::array<int, TRUCKLOADS_MAX>, TRUCKLOADS_MAX> loadTable;
+
 public:
+    static std::array<std::array<int, TRUCKLOADS_MAX>, TRUCKLOADS_MAX> loadTable;
     EfficientTruckloads();
     int numTrucks(int numCrates, int loadSize);
 };
