@@ -12,13 +12,13 @@ int main(void){
     // cout << reverse1.reverseDigit(-123) << endl;
     // cout << reverse1.reverseString("-123") << endl;
 
-    Truckloads truckload1;
+    // Truckloads truckload1;
     
-    cout << truckload1.numTrucks(1024,5) << endl;
+    // cout << truckload1.numTrucks(1024,5) << endl;
 
-    EfficientTruckloads etrucks1;
+    // EfficientTruckloads etrucks1;
 
-    cout << etrucks1.numTrucks(1024,5) << endl;
+    // cout << etrucks1.numTrucks(1024,5) << endl;
 
     return 0;
 }
