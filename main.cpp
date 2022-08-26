@@ -8,18 +8,58 @@
 using namespace std;
 
 int main(void){
-    // Reverse reverse1;
+    // Taking input
+    string input;
+    getline(cin, input);
 
-    // cout << reverse1.reverseDigit(-123) << endl;
-    // cout << reverse1.reverseString("-123") << endl;
+    vector<string> inputs(4, "");
+    int inputIndex = 0;
+    int inputSize = input.size();
 
+
+    // Splitting input on each space input
+    for (int i = 0; i < inputSize; i++){
+        char inputChar = input.at(i);
+
+        if (inputChar == ' '){
+            inputIndex += 1;
+        } else {
+            inputs.at(inputIndex).push_back(inputChar);
+        }
+        
+    }
+
+    // Processing output
+    Reverse reverse1;
     Truckloads truckload1;
-    
-    cout << truckload1.numTrucks(1000,2) << endl;
-
-    // Initialise all possible input values of truckloads to -1
     EfficientTruckloads etrucks1;
-    cout << etrucks1.numTrucks(10000,2) << endl;
+    
+    int reverseDigit = reverse1.reverseDigit(stoi(inputs.at(0)));
+    string reverseString = reverse1.reverseString(inputs.at(1));
+    int truckload = truckload1.numTrucks(stoi(inputs.at(2)), stoi(inputs.at(3)));
+    int efficientTruckload = etrucks1.numTrucks(stoi(inputs.at(2)), stoi(inputs.at(3)));
+
+    // Printing output
+    if (reverseDigit == -1){
+        cout << "ERROR";
+    } else {
+        cout << reverseDigit;
+    }
+    cout << " " << reverseString << " ";
+    
+    if (truckload == -1){
+        cout << "ERROR";
+    } else {
+        cout << truckload;
+    }
+    cout << " ";
+
+    if (efficientTruckload == -1){
+        cout << "ERROR";
+    } else {
+        cout << efficientTruckload;
+    }
+    cout << endl;
 
     return 0;
 }
