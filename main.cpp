@@ -2,20 +2,15 @@
 
 using namespace std;
 
-int fib(int n){
-    if (n <= 1){
-        return n;
+float series(float i){
+    if (i == 1){
+        return 0.5;
     }
-
-    return fib(n-1) + fib(n-2);
+    return series(i-1) + i/(i+1);
 }
 
 int main(void){
-    int num = 0;
-    cout << "Enter a number: ";
-    cin >> num;
-
-    cout << fib(num) << endl;
+    cout << series(3) << endl;
 
     return 0;
 }
