@@ -1,35 +1,20 @@
 #include <iostream>
 #include <vector>
-#include "FilterOdd.h"
-#include "FilterNonPositive.h"
-#include "FilterForTwoDigitPositive.h"
+#include "ReduceGCD.h"
+#include "ReduceMinimum.h"
 
 using namespace std;
 
 int main(void){
-    FilterOdd filter1;
-    FilterNonPositive filter2;
-    FilterForTwoDigitPositive filter3;
+    ReduceGCD reduce1;
+    ReduceMinimum reduce2;
 
-    vector<int> vector1 = {-1,20,3,-40,5};
-    vector<int> filteredVec1 = filter1.filter(vector1);
-    vector<int> filteredVec2 = filter2.filter(vector1);
-    vector<int> filteredVec3 = filter3.filter(vector1);
+    vector<int> vector1 = {5,7,8,4};
+    int reduceedVec1 = reduce1.reduce(vector1);
+    int reduceedVec2 = reduce2.reduce(vector1);
 
-    for (int i = 0; i < filteredVec1.size(); i++){
-        cout << filteredVec1.at(i) << endl;
-    }
-
-    cout << "vector2" << endl;
-
-    for (int i = 0; i < filteredVec2.size(); i++){
-        cout << filteredVec2.at(i) << endl;
-    }
-    cout << "vector3" << endl;
-
-    for (int i = 0; i < filteredVec3.size(); i++){
-        cout << filteredVec3.at(i) << endl;
-    }
+    cout << reduceedVec1 << endl;
+    cout << reduceedVec2 << endl;
 
     return 0;
 }
