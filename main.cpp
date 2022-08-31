@@ -1,31 +1,34 @@
 #include <iostream>
 #include <vector>
-#include "MapTriple.h"
-#include "MapSquare.h"
-#include "MapAbsoluteValue.h"
+#include "FilterOdd.h"
+#include "FilterNonPositive.h"
+#include "FilterForTwoDigitPositive.h"
 
 using namespace std;
 
 int main(void){
-    MapTriple map1;
-    MapSquare map2;
-    MapAbsoluteValue map3;
+    FilterOdd filter1;
+    FilterNonPositive filter2;
+    FilterForTwoDigitPositive filter3;
 
-    vector<int> vector1 = {-1,-2,-3,-4,5};
-    vector<int> mappedVec1 = map1.map(vector1);
-    vector<int> mappedVec2 = map2.map(vector1);
-    vector<int> mappedVec3 = map3.map(vector1);
+    vector<int> vector1 = {-1,20,3,-40,5};
+    vector<int> filteredVec1 = filter1.filter(vector1);
+    vector<int> filteredVec2 = filter2.filter(vector1);
+    vector<int> filteredVec3 = filter3.filter(vector1);
 
-    for (int i = 0; i < mappedVec1.size(); i++){
-        cout << mappedVec1.at(i) << endl;
+    for (int i = 0; i < filteredVec1.size(); i++){
+        cout << filteredVec1.at(i) << endl;
     }
 
-    for (int i = 0; i < mappedVec2.size(); i++){
-        cout << mappedVec2.at(i) << endl;
-    }
+    cout << "vector2" << endl;
 
-    for (int i = 0; i < mappedVec3.size(); i++){
-        cout << mappedVec3.at(i) << endl;
+    for (int i = 0; i < filteredVec2.size(); i++){
+        cout << filteredVec2.at(i) << endl;
+    }
+    cout << "vector3" << endl;
+
+    for (int i = 0; i < filteredVec3.size(); i++){
+        cout << filteredVec3.at(i) << endl;
     }
 
     return 0;
