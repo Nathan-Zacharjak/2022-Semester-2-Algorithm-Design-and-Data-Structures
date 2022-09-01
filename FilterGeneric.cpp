@@ -13,7 +13,7 @@ vector<int> FilterGeneric::filter(vector<int> input, vector<int> acc, int index)
         return acc;
     }
 
-    if (!g(input.at(index))){
+    if (g(input.at(index))){
         acc.push_back(input.at(index));
     }
 
