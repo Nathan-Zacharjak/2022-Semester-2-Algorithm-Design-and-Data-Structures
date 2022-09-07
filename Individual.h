@@ -8,6 +8,7 @@ private:
     std::string binaryString;
 public:
     std::string getString();
+    void setString(std::string newString);
     int getBit(int pos);
     void flipBit(int pos);
     int getMaxOnes();

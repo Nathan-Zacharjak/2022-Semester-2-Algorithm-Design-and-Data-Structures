@@ -7,6 +7,10 @@ string Individual::getString(){
     return binaryString;
 }
 
+void Individual::setString(string newString){
+    binaryString = newString;
+} 
+
 int Individual::getBit(int pos){
     int length = binaryString.length();
 
