@@ -5,6 +5,7 @@
 using namespace std;
 
 Individual Rearrange::mutate(Individual ind, int k){
+    k = k - 1;
     k = k % ind.getLength();
     string dna = ind.getString();
     string temp1 = dna.substr(0, k);
