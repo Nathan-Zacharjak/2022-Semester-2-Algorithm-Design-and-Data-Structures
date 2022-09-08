@@ -11,9 +11,7 @@ using namespace std;
 
 Individual* execute(Individual* indPtr, Mutator* mPtr, int k){
     string dna = mPtr->mutate(*indPtr, k).getString();
-    Individual* offspring = new Individual(dna);
-
-    return offspring;
+    return new Individual(dna);
 }
 
 int main(void){
