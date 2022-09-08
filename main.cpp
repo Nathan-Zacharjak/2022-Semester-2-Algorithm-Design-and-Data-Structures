@@ -8,6 +8,10 @@
 
 using namespace std;
 
+Individual* execute(Individual* indPtr, Mutator* mPtr, int k){
+    return &mPtr->mutate(*indPtr, k);
+}
+
 int main(void){
     
 

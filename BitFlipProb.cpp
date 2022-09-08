@@ -1,20 +1,23 @@
 #include "BitFlipProb.h"
 #include "Individual.h"
-#include <random>
+#include <time.h>
+#include <stdlib.h>
 
 using namespace std;
 
 Individual BitFlipProb::mutate(Individual ind, int k){
-    default_random_engine generator;
-    uniform_real_distribution<double> randNum(0.0,1.0);
-
     for (int i = 0; i < ind.getLength(); i++){
-        if (randNum(generator) < prob){
+        double num = (double)rand() / RAND_MAX;
+
+        if (num < prob){
             ind.flipBit(i);
         }
     }
+
+    return ind;
 }
 
 BitFlipProb::BitFlipProb(double _prob){
     prob = _prob;
+    srand(time(NULL));
 }
