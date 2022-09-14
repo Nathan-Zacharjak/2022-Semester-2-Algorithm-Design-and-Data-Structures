@@ -2,15 +2,29 @@
 
 using namespace std;
 
-float series(float i){
-    if (i == 1){
-        return 0.5;
+int sumDigits(long n, long acc){
+    int lastDigit = n % 10;
+    int nWithoutLastDigit = n / 10;
+
+    cout << lastDigit << " " << nWithoutLastDigit << endl;
+
+    acc = acc + lastDigit;
+
+    if (nWithoutLastDigit == 0){
+        return acc;
     }
-    return series(i-1) + i/(i+1);
+
+    return sumDigits(nWithoutLastDigit, acc);
+}
+
+int sumDigits(long n){
+    return sumDigits(n, 0);
 }
 
 int main(void){
-    cout << series(3) << endl;
+    long input = 0;
+    cin >> input;
+    cout << sumDigits(input) << endl;
 
     return 0;
 }
