@@ -2,23 +2,20 @@
 
 using namespace std;
 
-int numDup(int arr[], int start, int size, int element, int acc, int counter) {
+int numDup(int arr[], int counter, int size, int element) {
     // Base case
-    if (counter > size){
-        return acc;
+    if (counter > size -1){
+        return 0;
     }
 
     // Recursive case
+    int foundElement = 0;
     if (arr[counter] == element){
-        acc++;
+        foundElement = 1;
     }
 
     counter++;
-    return numDup(arr, start, size, element, acc, counter);
-}
-
-int numDup(int arr[], int start, int size, int element) {
-    return numDup(arr, start, size, element, 0, 0);
+    return numDup(arr, counter, size, element) + foundElement;
 }
 
 int main(void){
