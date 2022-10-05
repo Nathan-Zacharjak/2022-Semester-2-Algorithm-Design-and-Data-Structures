@@ -1,26 +1,19 @@
+#include "QuickSort.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-int numDup(int arr[], int counter, int size, int element) {
-    // Base case
-    if (counter > size -1){
-        return 0;
+int main(){
+    vector<int> list = {5,4,3,2,1};
+    QuickSort quickSort1;
+
+    list = quickSort1.sort(list);
+
+    cout << "Final list:" << endl;
+    for (int i = 0; i < list.size(); i++){
+        cout << list.at(i) << endl;
     }
-
-    // Recursive case
-    int foundElement = 0;
-    if (arr[counter] == element){
-        foundElement = 1;
-    }
-
-    counter++;
-    return numDup(arr, counter, size, element) + foundElement;
-}
-
-int main(void){
-    int arr[5] = {1,2,4,4,5};
-    cout << numDup(arr, 2, 5, 4) << endl;
 
     return 0;
 }
