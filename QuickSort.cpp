@@ -20,7 +20,7 @@ vector<int> QuickSort::sort(vector<int> list){
     vector<int> smallerNums;
     vector<int> largerNums;
 
-    for (int i = 0; i < list.size(); i++){
+    for (int i = 0; i < (int) list.size(); i++){
         int num = list.at(i);
 
         if (num < pivot){

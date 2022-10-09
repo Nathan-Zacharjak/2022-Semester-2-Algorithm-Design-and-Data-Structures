@@ -5,10 +5,8 @@
 using namespace std;
 
 vector<int> BubbleSort::sort(vector<int> list){
-    int length = list.size();
-
-    for (int i = 0; i < length; i++){
-        for (int j = 0; j < length - 1; j++){
+    for (int i = 0; i < (int) list.size(); i++){
+        for (int j = 0; j < (int) list.size() - 1; j++){
             int left = list.at(j);
             int right = list.at(j+1);
 
