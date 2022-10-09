@@ -13,6 +13,8 @@ bool RecursiveBinarySearch::search(vector<int> list, int num){
 
     if (middle == num){
         return true;
+    } else if (list.size() <= 1){
+        return false;
     }
 
     if (middle > num){
