@@ -46,6 +46,9 @@ int main(){
     }
     // Have to input to the vector again in case the last character is a number
     if (numberFound) {
+        if (negative) {
+            currentNumber = -currentNumber;
+        }
         nums.push_back(currentNumber);
     }
 
