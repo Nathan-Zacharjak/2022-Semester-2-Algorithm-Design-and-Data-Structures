@@ -1,7 +1,7 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#include <Array>
+#include <array>
 #include "Node.h"
 
 class LinkedList{
@@ -18,7 +18,7 @@ public:
     int getItem(int position);
     void printItems();
     LinkedList();
-    LinkedList(array<int> list, int size);
+    LinkedList(array<int, 100> list, int size);
     ~LinkedList();
 };
 
