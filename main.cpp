@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <array>
 #include <string>
 
 #include "Node.h"
@@ -11,10 +11,15 @@ int main(){
     string input;
     getline(cin, input);
 
-    vector<int> nums;
+    array<int, 100> nums;
     int currentNumber = 0;
+    int currentIndex = 0;
+    int currentParameterIndex = 0;
     bool numberFound = false;
     bool negative = false;
+    bool isParameter = false;
+    string command;
+    array<int, 2> parameters;
 
     // Going through one character at a time from the input string
     for (int i = 0; i < (int) input.size(); i++){
@@ -30,44 +35,67 @@ int main(){
             currentNumber = currentNumber + input.at(i) - '0';
             numberFound = true;
             
-        // If the current character is not a number, push the currently saved number to the vector, once
-        } else if (numberFound) {
+        // If the current character is a space, push the currently saved number to the array, once
+        } else if (numberFound && character == ' ') {
             if (negative) {
                 currentNumber = -currentNumber;
             }
-            nums.push_back(currentNumber);
+
+            if (isParameter){
+                parameters.at(currentParameterIndex) = currentNumber;
+                currentParameterIndex++;
+            } else {
+                nums.at(currentIndex) = currentNumber;
+                currentIndex++;
+            }
+            
             currentNumber = 0;
             numberFound = false;
             negative = false;
-        // If the current character isn't a number, we aren't looking at a negative number
-        } else {
+        // If the current character is a uppercase letter, add it to the command string
+        } else if (character >= 'A' || character <= 'Z') {
+            numberFound = false;
             negative = false;
+            command.push_back(character);
+            // All nums after the string are parameters
+            isParameter = true;
+            currentIndex = 0;
         }
     }
-    // Have to input to the vector again in case the last character is a number
+
+    // Have to input to the array again in case the last character is a number
     if (numberFound) {
         if (negative) {
             currentNumber = -currentNumber;
         }
-        nums.push_back(currentNumber);
+        
+        parameters.at(currentParameterIndex) = currentNumber;
     }
 
-    // Sorting the input and finding 1
-    QuickSort qsort;
-    nums = qsort.sort(nums);
-    RecursiveBinarySearch rsearch;
-    bool found1 = rsearch.search(nums, 1);
+
+    // Processing the command
+    LinkedList list(nums, currentIndex);
+    if (command == "AF"){
+        list.addFront(parameters.at(0));
+    } else if (command == "AE"){
+        list.addEnd(parameters.at(0));
+    } else if (command == "AP"){
+        list.addAtPosition(parameters.at(0), parameters.at(1));
+    } else if (command == "S"){
+        list.search(parameters.at(0));
+    } else if (command == "DF"){
+        list.deleteFront();
+    } else if (command == "DE"){
+        list.deleteEnd();
+    } else if (command == "DP"){
+        list.deletePosition(parameters.at(0));
+    } else if (command == "GI"){
+        list.getItem(parameters.at(0));
+    }
+
     
     // Printing result
-    if (found1){
-        cout << "true";
-    } else {
-        cout << "false";
-    }
-    for (int i = 0; i < (int) nums.size(); i++){
-        cout << " " << nums.at(i);
-    }
-    cout << endl;
+    list.printItems();
 
     return 0;
 }
