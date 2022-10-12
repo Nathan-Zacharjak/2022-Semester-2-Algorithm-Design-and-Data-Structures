@@ -8,9 +8,9 @@ private:
 public:
     Node();
     int getData();
-    void setData();
+    void setData(int _data);
     Node* getNext();
-    void setNext();
+    void setNext(Node* _next);
 };
 
 #endif
