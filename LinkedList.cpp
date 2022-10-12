@@ -30,7 +30,7 @@ void LinkedList::addAtPosition(int position, int newItem){
         addFront(newItem);
         return;
     }
-    
+
     Node* newNode = new Node;
     newNode->setData(newItem);
 
@@ -139,7 +139,7 @@ LinkedList::LinkedList(){
 }
 
 LinkedList::LinkedList(array<int, 100> list, int size){
-    for (int i = size; i <= 0; i--){
+    for (int i = size - 1; i >= 0; i--){
         addFront(list.at(i));
     }
 }

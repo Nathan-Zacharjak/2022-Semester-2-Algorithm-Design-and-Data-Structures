@@ -59,7 +59,6 @@ int main(){
             command.push_back(character);
             // All nums after the string are parameters
             isParameter = true;
-            currentIndex = 0;
         }
     }
 
@@ -72,8 +71,9 @@ int main(){
         parameters.at(currentParameterIndex) = currentNumber;
     }
 
+    cout << parameters.at(0) << " " << parameters.at(1) << endl;
 
-    // Processing the command
+    // // Processing the command
     LinkedList list(nums, currentIndex);
     if (command == "AF"){
         list.addFront(parameters.at(0));
@@ -95,7 +95,7 @@ int main(){
 
     
     // // Printing result
-    // list.printItems();
+    list.printItems();
 
     return 0;
 }
