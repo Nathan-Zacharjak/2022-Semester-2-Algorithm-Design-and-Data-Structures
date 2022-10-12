@@ -1,5 +1,5 @@
 #include <iostream>
-#include <array>
+#include <vector>
 #include <string>
 
 #include "Node.h"
@@ -11,7 +11,7 @@ int main(){
     string input;
     getline(cin, input);
 
-    array<int,100> nums;
+    vector<int> nums;
     int currentNumber = 0;
     bool numberFound = false;
     bool negative = false;

@@ -2,6 +2,7 @@
 #include "Node.h"
 #include <array>
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -103,4 +104,50 @@ void LinkedList::deletePosition(int position){
     Node* deleteNode = currentNode->getNext();
     currentNode->setNext(deleteNode->getNext());
     delete deleteNode;
+}
+
+int LinkedList::getItem(int position){
+    if (position < 1){
+        cout << numeric_limits<int>::max() << " ";
+        return numeric_limits<int>::max();
+    }
+
+    Node* currentNode = head;
+    for (int i = 1; i < position; i++){
+        if (currentNode->getNext() == nullptr){
+            cout << numeric_limits<int>::max() << " ";
+            return numeric_limits<int>::max();
+        }
+        
+        currentNode = currentNode->getNext();
+    }
+
+    cout << currentNode->getData();
+    return currentNode->getData();
+}
+
+void LinkedList::printItems(){
+    Node* currentNode = head;
+    while (currentNode != nullptr){
+        cout << currentNode->getData() << " ";
+        currentNode = currentNode->getNext();
+    }
+}
+
+LinkedList::LinkedList(){
+    head = nullptr;
+}
+
+LinkedList::LinkedList(array<int, 100> list, int size){
+    for (int i = size; i <= 0; i--){
+        addFront(list.at(i));
+    }
+}
+
+LinkedList::~LinkedList(){
+    Node* currentNode = head;
+    while (currentNode->getNext() != nullptr){
+        deleteFront();
+        currentNode = head;
+    }
 }
