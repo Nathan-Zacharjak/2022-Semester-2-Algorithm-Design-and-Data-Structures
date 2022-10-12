@@ -94,8 +94,8 @@ int main(){
     }
 
     
-    // Printing result
-    list.printItems();
+    // // Printing result
+    // list.printItems();
 
     return 0;
 }

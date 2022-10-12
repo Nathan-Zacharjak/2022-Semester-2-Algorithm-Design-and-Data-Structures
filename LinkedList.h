@@ -18,7 +18,7 @@ public:
     int getItem(int position);
     void printItems();
     LinkedList();
-    LinkedList(array<int, 100> list, int size);
+    LinkedList(std::array<int, 100> list, int size);
     ~LinkedList();
 };
 
