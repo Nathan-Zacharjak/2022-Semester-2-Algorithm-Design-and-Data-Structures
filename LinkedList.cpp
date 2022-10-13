@@ -35,7 +35,7 @@ void LinkedList::addAtPosition(int position, int newItem){
     newNode->setData(newItem);
 
     Node* currentNode = head;
-    for (int i = 1; i < position; i++){
+    for (int i = 0; i < position - 2; i++){
         if (currentNode->getNext() == nullptr){
             break;
         }
@@ -122,7 +122,7 @@ int LinkedList::getItem(int position){
         currentNode = currentNode->getNext();
     }
 
-    cout << currentNode->getData();
+    cout << currentNode->getData() << " ";
     return currentNode->getData();
 }
 
@@ -132,6 +132,7 @@ void LinkedList::printItems(){
         cout << currentNode->getData() << " ";
         currentNode = currentNode->getNext();
     }
+    cout << endl;
 }
 
 LinkedList::LinkedList(){
@@ -139,6 +140,7 @@ LinkedList::LinkedList(){
 }
 
 LinkedList::LinkedList(array<int, 100> list, int size){
+    head = nullptr;
     for (int i = size - 1; i >= 0; i--){
         addFront(list.at(i));
     }

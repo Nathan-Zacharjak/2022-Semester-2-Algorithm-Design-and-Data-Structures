@@ -71,30 +71,30 @@ int main(){
         parameters.at(currentParameterIndex) = currentNumber;
     }
 
-    cout << parameters.at(0) << " " << parameters.at(1) << endl;
-
-    // // Processing the command
+    // Processing the command
+    // Removing the last whitespace character from the command
+    command.erase(command.end() - 1);
     LinkedList list(nums, currentIndex);
-    if (command == "AF"){
+
+    if (command.compare("AF") == 0){
         list.addFront(parameters.at(0));
-    } else if (command == "AE"){
-        list.addEnd(parameters.at(0));
-    } else if (command == "AP"){
+    } else if (command.compare("AE") == 0){
+        list.addEnd(parameters.at(0) == 0);
+    } else if (command.compare("AP") == 0){
         list.addAtPosition(parameters.at(0), parameters.at(1));
-    } else if (command == "S"){
+    } else if (command.compare("S") == 0){
         list.search(parameters.at(0));
-    } else if (command == "DF"){
+    } else if (command.compare("DF") == 0){
         list.deleteFront();
-    } else if (command == "DE"){
+    } else if (command.compare("DE") == 0){
         list.deleteEnd();
-    } else if (command == "DP"){
+    } else if (command.compare("DP") == 0){
         list.deletePosition(parameters.at(0));
-    } else if (command == "GI"){
+    } else if (command.compare("GI") == 0){
         list.getItem(parameters.at(0));
     }
 
-    
-    // // Printing result
+    // Printing result
     list.printItems();
 
     return 0;
