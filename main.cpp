@@ -7,11 +7,17 @@ using namespace std;
 
 int main(){
     Convert convert1;
-    string input = "* - 5 6 7";
-    // getline(cin, input);
-    // convert1.calculatePrefix(input);
-    cout << convert1.toInfix(input) << " = " << convert1.calculatePrefix(input) << endl;
+    string input;
+    getline(cin, input);
 
+    string inFix = convert1.toInfix(input);
+    string calculation = convert1.calculatePrefix(input);
+    
+    if (inFix == "Error" || calculation == "Error"){
+        cout << "Error" << endl;
+    } else {
+        cout << inFix << " = " << calculation << endl;
+    }
 
     return 0;
 }
