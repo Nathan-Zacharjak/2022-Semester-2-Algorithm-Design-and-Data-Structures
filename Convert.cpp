@@ -37,6 +37,11 @@ void Convert::processString(string input){
             currentNumber = 0;
         }
     }
+
+    if (numberFound){
+        operands.push(currentNumber);
+    }
+    
 }
 
 string Convert::calculatePrefix(string input){
@@ -67,6 +72,9 @@ string Convert::calculatePrefix(string input){
             result = operand1 * operand2;
             break;
         case '/':
+            if (operand2 == 0){
+                return "Error";
+            }
             result = (float)operand1 / operand2;
             break;
         
