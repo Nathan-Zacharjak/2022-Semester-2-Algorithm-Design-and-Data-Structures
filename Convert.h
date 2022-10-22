@@ -3,16 +3,16 @@
 
 #include <string>
 #include <stack>
+#include <queue>
 
 class Convert{
 private:
-    std::stack<char> operators;
+    std::queue<char> operators;
     std::stack<int> operands;
     void processString(std::string input);
 public:
     std::string calculatePrefix(std::string input);
     std::string toInfix(std::string input);
-    Convert();
 };
 
 
