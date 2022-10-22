@@ -7,60 +7,36 @@
 using namespace std;
 
 void Convert::processString(string input){
-    int size = input.size();
     int currentNumber = 0;
+    int order = 1;
     bool numberFound = false;
-    bool negative = false;
 
-    for (int i = 0; i < size; i++){
-        char character = input.at(i);
+    while (!input.empty()){
+        char character = input.back();
+        input.pop_back();
 
         if (character == '+' || character == '*' || character == '/'){
             operators.push(character);
         } else if (character >= '0' && character <= '9'){
             numberFound = true;
-            currentNumber *= 10;
-            currentNumber += character - 48;
+            currentNumber += (character - 48) * order;
+            order *= 10;
         } else if (character == '-'){
-            negative = true;
-        } else if (numberFound){
-            if (negative){
-                currentNumber = -currentNumber;
+            if (numberFound){
+                operands.push(-currentNumber);
+            } else {
+                operators.push(character);
             }
+            order = 1;
+            numberFound = false;
+            currentNumber = 0;
+        } else if (numberFound){
             operands.push(currentNumber);
-
-            negative = false;
-            numberFound = false;
-            currentNumber = 0;
-        } else if (negative) {
-            operators.push('-');
-            negative = false;
+            order = 1;
             numberFound = false;
             currentNumber = 0;
         }
     }
-
-    if (numberFound){
-        if (negative){
-            currentNumber = -currentNumber;
-        }
-        operands.push(currentNumber);
-    }
-    
-
-    // cout << "Operators:" << endl;
-    // for (int i = 0; i < (int)operators.size() + 1; i++)
-    // {
-    //     cout << operators.top() << endl;
-    //     operators.pop();
-    // }
-    // cout << "Operands:" << endl;
-    // for (int i = 0; i < (int)operands.size() + 1; i++)
-    // {
-    //     cout << operands.top() << endl;
-    //     operands.pop();
-    // }
-    
 }
 
 string Convert::calculatePrefix(string input){
