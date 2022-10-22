@@ -8,7 +8,7 @@
 class Convert{
 private:
     std::queue<char> operators;
-    std::stack<int> operands;
+    std::stack<float> operands;
     void processString(std::string input);
 public:
     std::string calculatePrefix(std::string input);

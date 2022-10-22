@@ -49,14 +49,14 @@ string Convert::calculatePrefix(string input){
     float result = 0;
 
     while (!(operators.empty() || operands.empty())){
-        int operand1 = operands.top();
+        float operand1 = operands.top();
         operands.pop();
 
         if (operands.empty()){
             break;
         }
 
-        int operand2 = operands.top();
+        float operand2 = operands.top();
         operands.pop();
         char op = operators.front();
         operators.pop();
@@ -75,7 +75,8 @@ string Convert::calculatePrefix(string input){
             if (operand2 == 0){
                 return "Error";
             }
-            result = (float)operand1 / operand2;
+            result = operand1 / operand2;
+            cout << result << endl;
             break;
         
         default:
