@@ -1,2 +1,2 @@
-# 2022-s2-adds
-Algorithm Design and Data Structures Semester 2 2022
+# 2022 Semester 2 Algorithim Design and Data Structures
+More advanced dive into C++ and common data objects in programming in general
